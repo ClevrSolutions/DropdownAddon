@@ -1,0 +1,13 @@
+{
+    "generator-mendix": {
+        "promptValues": {
+            "copyright": "FlowFabric 2019",
+            "license": "Apache 2",
+            "author": "Edwin Huitema",
+            "boilerplate": "empty",
+            "widgetoptions": [
+                "templates"
+            ]
+        }
+    }
+}

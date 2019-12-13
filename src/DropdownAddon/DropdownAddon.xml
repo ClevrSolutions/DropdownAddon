@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="DropdownAddon.widget.DropdownAddon" needsEntityContext="false" xmlns="http://www.mendix.com/widget/1.0/">
+    <name>DropdownAddon</name>
+    <description>Addon for a standard referenceselector to be able to show multiple attributes from the referenced entity in the referenceselector.</description>
+
+    <icon />
+
+    <properties>
+        <property key="displayString" type="string" required="true" defaultValue="">
+            <caption>Display String</caption>
+            <category>Appearance</category>
+            <description>Specify the display string that is used to show each item in the dropdown. You can use ${your_Variable_Name} placeholders for attributes.</description>
+        </property>
+        <property key="referenceSelectorName" type="string" required="true" defaultValue="">
+            <caption>ReferenceSelector Name</caption>
+            <category>Behavior</category>
+            <description>Specify the Name of the reference selector.</description>
+        </property>
+        <property key="referenceEntity" type="entity" required="true" >
+            <caption>Reference Entity</caption>
+            <category>Data Source</category>
+            <description>The entity that the reference selector uses (points to). For this entity one or more attributes can be configured to use in the dropdown as configured in Display String.</description>
+        </property>
+
+        <property key="attributes" type="object" isList="true" required="false">
+            <caption>Attributes</caption>
+            <category>Data Source</category>
+            <description></description>
+            <properties>
+                <property key="variableName" type="string" required="false" defaultValue="">
+                    <caption>Variable name</caption>
+                    <category>Data source</category>
+                    <description>Identifies the attribute value, this name should be used in 'Display String' property as placeholder.</description>
+                </property>
+
+                <property key="attr" type="attribute" allowNonPersistableEntities="true" entityProperty="../referenceEntity">
+                    <caption>Attribute</caption>
+                    <category>Data source</category>
+                    <description>Value of this attribute will be used to replace ${your_Variable_Name}, defined in 'Display String' property</description>
+                    <attributeTypes>
+                        <attributeType name="AutoNumber"/>
+                        <attributeType name="String" />
+                        <attributeType name="Enum"/>
+                        <attributeType name="Integer"/>
+                        <attributeType name="Float"/>
+                        <attributeType name="Currency"/>
+                        <attributeType name="Decimal"/>
+                        <attributeType name="Long"/>
+                        <attributeType name="DateTime"/>
+                    </attributeTypes>
+                </property>
+
+                <property key="datePattern" type="translatableString" required="false">
+                    <caption>DateTime pattern</caption>
+                    <category>Behaviour</category>
+                    <description>Optional, DateTime pattern to use with DateTime attribute.</description>
+                </property>
+                <property key="decimalPrecision" type="integer" defaultValue="0">
+                    <caption>Decimal precision</caption>
+                    <category>Behaviour</category>
+                    <description>Amount of decimals</description>
+                </property>
+                <property key="groupDigits" type="boolean" defaultValue="true">
+                    <caption>Group digits</caption>
+                    <category>Behaviour</category>
+                    <description>Displays a numeric value with group digits</description>
+                </property>
+
+            </properties>
+        </property>
+
+    </properties>
+</widget>
